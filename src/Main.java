@@ -13,29 +13,29 @@ public class Main {
 
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
+        int[] budget = new int[30];
+        for (int i = 0; i < budget.length; i++) {
+            budget[i] = random.nextInt(100_000) + 100_000;
         }
-        return arr;
+        return budget;
     }
 
     public static void task1() {
         System.out.println("Задача 1");
-        int[] arr = generateRandomArray();
+        int[] budget = generateRandomArray();
         int totalSalary = 0;
-        for (int singleSalary : arr) {
+        for (int singleSalary : budget) {
             totalSalary += singleSalary;
         }
-        System.out.println("Сумма затрат за месйц составила " + totalSalary + "рублей");
+        System.out.println("Сумма затрат за месйц составила " + totalSalary + " рублей");
     }
 
     public static void task2() {
         System.out.println("Задача 2");
-        int[] arr = generateRandomArray();
-        int maxWaste = 100_000;
-        int minWaste = 200_000;
-        for (int singleSalary : arr) {
+        int[] budget = generateRandomArray();
+        int maxWaste = budget[0];
+        int minWaste = budget[0];
+        for (int singleSalary : budget) {
             if (singleSalary > maxWaste) {
                 maxWaste = singleSalary;
             }
@@ -48,13 +48,13 @@ public class Main {
 
     public static void task3() {
         System.out.println("Задача 3");
-        int[] arr = generateRandomArray();
+        int[] budget = generateRandomArray();
         int totalWaste = 0;
         double medianWaste;
-        for (int singleWaste : arr) {
+        for (int singleWaste : budget) {
             totalWaste += singleWaste;
         }
-        medianWaste = totalWaste / 30.0;
+        medianWaste = totalWaste / (double) budget.length;
         System.out.printf("Средняя сумма трат за месяц составила %.2f рублей \n", medianWaste);
     }
 
